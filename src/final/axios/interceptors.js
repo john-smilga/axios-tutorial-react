@@ -2,7 +2,10 @@ import axios from 'axios';
 const jwt = 'jwtToken';
 
 const authFetch = axios.create({
-  baseURL: 'https://course-api.com/',
+  baseURL: 'https://course-api.com',
+  headers: {
+    Accept: 'application/json',
+  },
 });
 
 authFetch.interceptors.request.use(
@@ -14,14 +17,12 @@ authFetch.interceptors.request.use(
     return Promise.reject(error);
   }
 );
-// response
 
 authFetch.interceptors.response.use(
   (response) => {
     return response;
   },
   (error) => {
-    // console.log(error.response)
     if (error.response.status === 401) {
       console.log('AUTH ERROR');
     }

@@ -1,14 +1,11 @@
 import { useEffect } from 'react';
-import authFetch from '../../axios/interceptors';
-
+import authFetch from '../axios/interceptors';
 const Interceptors = () => {
   const fetchData = async () => {
     try {
       const response = await authFetch.get('/axios-tutorial');
       console.log(response);
-    } catch (error) {
-      console.log(error.response);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {

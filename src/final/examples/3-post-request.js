@@ -5,12 +5,12 @@ const url = 'https://course-api.com/axios-tutorial';
 const PostRequest = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+
   const [jwt, setJWT] = useState(null);
   const [data, setData] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(name, email);
     try {
       const resp = await axios.post(url, { name, email });
       setJWT(resp.data.jwt);
@@ -29,7 +29,7 @@ const PostRequest = () => {
       console.log(resp);
       setData(resp.data.msg);
     } catch (error) {
-      console.log(error.response.data);
+      console.log(error.response);
       setData(error.response.data.msg);
     }
   };

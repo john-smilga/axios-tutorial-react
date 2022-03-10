@@ -63,13 +63,13 @@ const fetchData = async () => {
 ```js
 const fetchDadJoke = async () => {
   try {
-    const resp = await axios(url, {
+    const { data } = await axios(url, {
       headers: {
         Accept: 'application/json',
       },
     });
-    // console.log(response.data);
-    setJoke(resp.data.joke);
+    // console.log(data);
+    setJoke(data.joke);
   } catch (error) {
     console.log(error.response);
   }
@@ -101,8 +101,9 @@ const resp = await axios.get(url, {
 #### Global Defaults
 
 ```js
-axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+axios.defaults.headers.common['Accept'] = 'application/json';
 axios.defaults.baseURL = 'https://api.example.com';
+axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 axios.defaults.headers.post['Content-Type'] =
   'application/x-www-form-urlencoded';
 ```
@@ -111,9 +112,9 @@ axios.defaults.headers.post['Content-Type'] =
 
 ```js
 const authFetch = axios.create({
-  baseURL: 'https://course-api.com/',
+  baseURL: 'https://course-api.com',
   headers: {
-    Authorization: `Bearer ${jwt}`,
+    Accept: `application/json`,
   },
 });
 ```
@@ -123,6 +124,13 @@ const authFetch = axios.create({
 - global and custom
 
 ```js
+const authFetch = axios.create({
+  baseURL: 'https://course-api.com',
+  headers: {
+    Accept: `application/json`,
+  },
+});
+
 authFetch.interceptors.request.use(
   (config) => {
     config.headers.common['Authorization'] = `Bearer ${jwt}`;

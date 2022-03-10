@@ -1,5 +1,3 @@
 import axios from 'axios';
 
-axios.defaults.headers.common['Authorization'] = 'Bearer jwtToken';
-
-export default axios;
+axios.defaults.headers.common['Accept'] = 'application/json';
