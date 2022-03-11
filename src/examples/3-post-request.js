@@ -1,21 +1,14 @@
 import { useState } from 'react';
 import axios from 'axios';
-const url = 'https://course-api.com/axios-tutorial';
+const url = 'https://course-api.com/axios-tutorial-post';
 
 const PostRequest = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [jwt, setJWT] = useState(null);
-  const [data, setData] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(name, email);
-    console.log('submit form');
-  };
-
-  const getSecretData = async () => {
-    console.log('fetch restricted data');
   };
 
   return (
@@ -50,12 +43,6 @@ const PostRequest = () => {
           login
         </button>
       </form>
-      <section className='section'>
-        <button className='btn' onClick={getSecretData}>
-          get secret data
-        </button>
-        <h4 style={{ marginTop: '1rem' }}>{data}</h4>
-      </section>
     </section>
   );
 };
