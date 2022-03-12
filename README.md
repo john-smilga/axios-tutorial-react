@@ -105,6 +105,9 @@ axios.defaults.headers.post['Content-Type'] =
 ```js
 const authFetch = axios.create({
   baseURL: 'https://course-api.com',
+  headers: {
+    Accept: 'application/json',
+  },
 });
 ```
 
