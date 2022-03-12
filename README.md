@@ -34,7 +34,7 @@ npm install axios
 - default get axios(url)
 
 - returns a promise
-- response data located in data object
+- response data located in data property
 - error in error.response
 
 ```js
