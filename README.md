@@ -79,6 +79,8 @@ const fetchDadJoke = async () => {
 #### Post Request
 
 - send data to the server
+- axios.post(url, { data })
+- more options (auth header) - axios.post(url, { data },{})
 
 ```js
 try {
@@ -103,9 +105,6 @@ axios.defaults.headers.post['Content-Type'] =
 ```js
 const authFetch = axios.create({
   baseURL: 'https://course-api.com',
-  headers: {
-    Accept: `application/json`,
-  },
 });
 ```
 
@@ -116,6 +115,7 @@ const authFetch = axios.create({
 ```js
 authFetch.interceptors.request.use(
   (request) => {
+    request.headers.common['Accept'] = `application/json`;
     console.log('request sent');
     // must return request
     return request;

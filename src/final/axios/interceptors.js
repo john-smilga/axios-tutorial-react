@@ -6,8 +6,8 @@ const authFetch = axios.create({
 
 authFetch.interceptors.request.use(
   (request) => {
+    request.headers.common['Accept'] = 'application/json';
     console.log('request sent');
-    // must return request
     return request;
   },
   (error) => {

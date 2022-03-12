@@ -8,12 +8,7 @@ const PostRequest = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const resp = await axios.post(url, { name, email });
-      console.log(resp.data);
-    } catch (error) {
-      console.log(error.response);
-    }
+    console.log(name, email);
   };
 
   return (
@@ -45,7 +40,7 @@ const PostRequest = () => {
           />
         </div>
         <button type='submit' className='btn btn-block'>
-          login
+          register
         </button>
       </form>
     </section>
