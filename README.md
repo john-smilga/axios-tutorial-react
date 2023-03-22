@@ -29,7 +29,7 @@ npm install axios
 - axios.get(url)
 - axios.post(url)
 - axios.patch/put(url)
-- axios.delete(ulr)
+- axios.delete(url)
 
 - default get axios(url)
 
